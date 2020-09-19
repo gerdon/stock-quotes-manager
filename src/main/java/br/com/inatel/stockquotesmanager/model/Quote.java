@@ -49,5 +49,10 @@ public class Quote {
 	public void setValue(BigDecimal value) {
 		this.value = value;
 	}
+
+	@Override
+	public String toString() {
+		return "Quote [id=" + id + ", dataQuotation=" + dataQuotation + ", value=" + value + "]";
+	}
 	
 }

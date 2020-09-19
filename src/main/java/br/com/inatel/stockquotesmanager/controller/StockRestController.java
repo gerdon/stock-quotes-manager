@@ -28,6 +28,11 @@ public class StockRestController {
 	
 	@PostMapping
 	public Stock save(@RequestBody Stock stock) {
+//		RestTemplate rt = new RestTemplate();
+//		
+//		ResponseEntity<Object> stocks = rt.getForEntity("http://localhost:8080/stock", Object.class);
+//		System.out.println(stocks.getBody());
+		
 		return stockRepository.save(stock);
 	}
 	

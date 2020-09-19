@@ -52,5 +52,10 @@ public class Stock {
 	public void setQuotes(List<Quote> quotes) {
 		this.quotes = quotes;
 	}
+
+	@Override
+	public String toString() {
+		return "Stock [id=" + id + ", description=" + description + ", quotes=" + quotes + "]";
+	}
 	
 }

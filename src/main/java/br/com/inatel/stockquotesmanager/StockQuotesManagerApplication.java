@@ -12,7 +12,11 @@ public class StockQuotesManagerApplication {
 	
 //	@PostConstruct
 //	void conectionStart() {
+//		RestTemplate rt = new RestTemplate();
 //		
+//		ResponseEntity<Manager> manager = rt.postForEntity("http://localhost:8080/notification", new Manager("localhost", 8081), Manager.class);
+//		
+//		System.out.println(manager.toString());
 //	}
 
 }
