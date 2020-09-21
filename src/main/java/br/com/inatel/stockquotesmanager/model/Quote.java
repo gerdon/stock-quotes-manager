@@ -1,58 +1,56 @@
 package br.com.inatel.stockquotesmanager.model;
 
-import java.math.BigDecimal;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MapKeyColumn;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table
 public class Quote {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_quote")
-	private Integer id;
+	private String id;
 	
-	@JsonFormat(pattern = "yyyy-MM-dd")
-	private Date dataQuotation;
+	@JsonIgnore
+	private String description;
 	
-	private BigDecimal value;
+	@ElementCollection
+    @MapKeyColumn(name="quote_date")
+    @Column(name="quote_value")
+    @CollectionTable(name="quotes_map")
+	Map<String, String> quotes = new HashMap<String, String>();
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public Date getDataQuotation() {
-		return dataQuotation;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDataQuotation(Date dataQuotation) {
-		this.dataQuotation = dataQuotation;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public BigDecimal getValue() {
-		return value;
+	public Map<String, String> getQuotes() {
+		return quotes;
 	}
 
-	public void setValue(BigDecimal value) {
-		this.value = value;
-	}
-
-	@Override
-	public String toString() {
-		return "Quote [id=" + id + ", dataQuotation=" + dataQuotation + ", value=" + value + "]";
+	public void setQuotes(Map<String, String> quotes) {
+		this.quotes = quotes;
 	}
 	
 }
