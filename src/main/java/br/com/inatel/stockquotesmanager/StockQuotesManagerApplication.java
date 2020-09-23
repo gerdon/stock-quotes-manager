@@ -21,7 +21,7 @@ public class StockQuotesManagerApplication {
 		RestTemplate rt = new RestTemplate();
 		Manager manager =  new Manager("localhost", 8081);
 		
-		ResponseEntity<Object> response = rt.postForEntity("http://localhost:8080/notification", manager, Object.class);
+		ResponseEntity<Object> response = rt.postForEntity("http://192.168.0.171:8080/notification", manager, Object.class);
 		System.out.println(response.getStatusCodeValue() +" - "+ response.getBody());
 	}
 

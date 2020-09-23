@@ -34,7 +34,7 @@ public class QuoteRestController {
 	public ResponseEntity<Quote> save(@RequestBody Quote quote) {
 		RestTemplate rt = new RestTemplate();
 		
-		ResponseEntity<Stock[]> response = rt.getForEntity("http://localhost:8080/stock", Stock[].class);
+		ResponseEntity<Stock[]> response = rt.getForEntity("http://192.168.0.171:8080/stock", Stock[].class);
 		Stock[] stocks = response.getBody();
 		
 		for(Stock stock : stocks) {
